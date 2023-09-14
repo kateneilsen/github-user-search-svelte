@@ -212,6 +212,11 @@ button.color-scheme {
 	opacity: .5;
 }
 
+a.not-available:hover{
+    text-decoration-line: none;
+    cursor: auto;
+}
+
 .card p {
     color: #697c9a;
   }

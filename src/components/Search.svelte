@@ -16,7 +16,7 @@
     bind:value={searchFilter}
     placeholder="Search GitHub username..."
   />
-  <b class="error {searchError ? '' : 'show'}">No Results</b>
+  <b class="error {searchError ? 'show' : ''}">No Results</b>
   <button
     class="search-button"
     on:click={() => dispatch("filter", searchFilter)}>Search</button
