@@ -4,12 +4,13 @@
   import Search from "./components/Search.svelte";
   import User from "./components/User.svelte";
   const base_url = "https://api.github.com/users";
+
+  import { colorScheme } from "./stores";
+  $: isDarkMode = $colorScheme === "dark" ? "dark" : "";
+
   let user = {};
   let searchFilter = "";
   let date = new Date();
-  let day, month, year;
-
-  let isDarkMode = true;
 
   const filterUsers = async () => {
     await fetch(`${base_url}/${searchFilter}`)
@@ -52,11 +53,19 @@
     }
   };
 
+  // Set the color scheme each time it changes.
+  $: {
+    if ($colorScheme === "dark") {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }
   onMount(getUser);
 </script>
 
 <main>
-  <Header />
-  <Search bind:searchFilter on:filter={() => filterUsers()} />
-  <User {user} {joinedOnDate} />
+  <Header {isDarkMode} on:toggle={() => colorScheme.toggle()} />
+  <Search {isDarkMode} bind:searchFilter on:filter={() => filterUsers()} />
+  <User {user} {joinedOnDate} {isDarkMode} />
 </main>

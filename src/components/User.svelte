@@ -8,35 +8,37 @@
     }
     return true;
   };
+
+  export let isDarkMode;
 </script>
 
-<div class="card" id="user">
+<div class="card {isDarkMode}">
   <div class="card-header">
     <img class="circle" src={user.avatar_url} alt="user avatar" />
     <div class="header-info">
-      <b>{user.name}</b>
+      <b class=" {isDarkMode}">{user.name}</b>
       <a href={user.html_url} class="username">@{user.login}</a>
-      <p>Joined {joinedOnDate}</p>
+      <p class=" {isDarkMode}">Joined {joinedOnDate}</p>
     </div>
   </div>
 
   {#if isAvailable(user.bio)}
-    <p>{user.bio}</p>
+    <p class=" {isDarkMode}">{user.bio}</p>
   {:else}
     <p>Bio Not Available</p>
   {/if}
 
-  <div class="user-github-counts">
-    <span class="github-count">
+  <div class="user-github-counts {isDarkMode}">
+    <span class="github-count {isDarkMode}">
       <p>Repos</p>
       <b>{user.public_repos}</b>
     </span>
-    <span class="github-count">
-      <p>Followers</p>
-      <b>{user.followers}</b>
+    <span class="github-count {isDarkMode}">
+      <p class=" {isDarkMode}">Followers</p>
+      <b class=" {isDarkMode}">{user.followers}</b>
     </span>
-    <span class="github-count">
-      <p>Following</p>
+    <span class="github-count {isDarkMode}">
+      <p class=" {isDarkMode}">Following</p>
       <b>{user.following}</b>
     </span>
   </div>
@@ -45,7 +47,10 @@
       <img src="assets/icon-location.svg" alt="location" />
       {isAvailable(user.location) ? user.location : "Not Available"}
     </p>
-    <a href={user.blog} class={isAvailable(user.blog) ? "" : "not-available"}>
+    <a
+      href={user.blog}
+      class={isAvailable(user.blog) ? isDarkMode : "not-available"}
+    >
       <img src="assets/icon-website.svg" alt="website" />
       {isAvailable(user.blog) ? user.blog : "Not Available"}
     </a>

@@ -1,39 +1,32 @@
 <script>
   import { createEventDispatcher } from "svelte";
+  import { colorScheme } from "../stores";
   const dispatch = createEventDispatcher();
 
-  export let isDarkMode = true;
-
-  import { colorScheme } from "../stores";
-
-  // Set the color scheme each time it changes.
-  // Doing it this way could be useful if you use Tailwind with the class strategy.
-  $: {
-    document.firstElementChild.setAttribute("class", $colorScheme);
-    document.firstElementChild.style.colorScheme = $colorScheme;
-  }
+  export let isDarkMode;
 </script>
 
 <div class="header">
-  <h1>devfinder</h1>
-  <h6>
-    <button
-      class="color-scheme {isDarkMode ? 'dark' : ''}"
-      on:click={colorScheme.toggle}
-    >
-      {$colorScheme === "light" ? "Light" : "Dark"}
-      <img
-        src={$colorScheme === "light"
-          ? "assets/icon-sun.svg"
-          : "assets/icon-moon.svg"}
-        alt={$colorScheme === "light" ? "sun" : "moon"}
-      />
-    </button>
-  </h6>
+  <h1 class=" {isDarkMode}">devfinder</h1>
+  <button
+    class="color-scheme"
+    on:click={() => dispatch("toggle", $colorScheme)}
+  >
+    <h6 class=" {isDarkMode}">
+      {$colorScheme == "dark" ? "Light" : "Dark"}
+    </h6>
+
+    <img
+      src={$colorScheme == "dark"
+        ? "assets/icon-sun.svg"
+        : "assets/icon-moon.svg"}
+      alt={$colorScheme == "dark" ? "sun" : "moon"}
+    />
+  </button>
 </div>
 
 <style>
-  button.color-scheme {
+  button {
     display: flex;
     align-items: center;
     gap: 1rem;

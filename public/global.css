@@ -14,6 +14,7 @@ button{
 
 h1{
     font-size: 26px;
+    color: #2B3442;
 }
 
 b{
@@ -25,13 +26,17 @@ h6{
     font-size: 13px;
 }
 
-p, a{
+p, a, input, input::placeholder{
     font-size: 13px;
     margin: 0;
-    color: #697C9A;
     font-weight: 400;
 	text-decoration: none;
 	line-height: 25px;
+    color: #697C9A;
+}
+
+div.light{
+    background: #FEFEFE;
 }
 
 body{
@@ -50,6 +55,7 @@ main{
 }
 
 .search{
+    background: #FFF;
 	display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,19 +63,18 @@ main{
     padding-block: 0.406rem;
     gap: .5rem;
     border-radius: 15px;
-    background: #FEFEFE;
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.20);
 }
 
 .card{
 	border-radius: 15px;
-    background: #FEFEFE;
     box-shadow: 0px 16px 30px -10px rgba(70, 96, 187, 0.20);
     display: flex;
 	flex-direction: column;
     gap: 1rem;
     padding-block: 2rem;
 	padding-inline: 24px;
+    background: #FFF;
 }
 
 .header{
@@ -81,12 +86,13 @@ main{
 	width: 100%;
 }
 
-input[type=text]{
+input{
     width: 100%;
     border: none;
 	padding: 0;
 	margin: 0;
 	font-size: 13px;
+    background: #FFF;
 }
 
 img.search-icon{
@@ -94,7 +100,7 @@ img.search-icon{
     height: 20px;
 }
 
-button.search{
+button.search-button{
     border-radius: 0.625rem;
     background: #0079FF;
     color: #FFF;
@@ -106,6 +112,14 @@ button.search{
     padding-block: 0.781rem;
     width: fit-content;
 }
+
+button.color-scheme {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    letter-spacing: 2.5px;
+    color: #2b3442;
+  }
 
 .card-header{
     display: flex;
@@ -130,7 +144,6 @@ button.search{
     height:4.375rem;
     border-radius: 4.375rem;
 	background: lightgray 50% / cover no-repeat;
-
 }
 
 .user-github-counts{
@@ -180,34 +193,67 @@ button.search{
 	opacity: .5;
 }
 
+.card p {
+    color: #697c9a;
+  }
+  p {
+    color: #697c9a;
+  }
+  .github-count p {
+    color: #697c9a;
+  }
+  .socials p {
+    color: #697c9a;
+  }
+
 /* dark theme */
 @media (prefers-color-scheme: dark){
-    body{
+    body.dark{
         background: #141D2F;
-    }
-    h1, h6, p, b, a, button{
         color: #FFF;
     }
-    .search, .card{
-        background: #1E2A47;
+    h1.dark, h6.dark, p.dark, a.dark, button.dark{
+        color: #FFF;
     }
 
-    .card .user-github-counts{
-        background: #141D2F;
-    }
-    input{
+    input.dark{
         background: #1E2A47;
         color: #FFF;
     }
 
-    input::placeholder{
+    input.dark::placeholder{
         color: #FFF;
     }
 
-    .socials a{
-        color: #FFF;
+    .search.dark{
+        background: #1E2A47;
     }
+
+    .card.dark{
+        background: #1E2A47;
+    }
+
+    .user-github-counts.dark{
+        color: #FFF;
+        background: #141D2F;
+    } 
+    .card.dark p {
+        color: #fff;
+      }
+      .github-count.dark b,
+      p {
+        color: #fff;
+      }
+      p.dark {
+        color: #fff;
+      }
+      b.dark,
+      a.dark {
+        color: #fff;
+      }
+
 }
+
 /* MQ */
 @media (min-width: 576px) {
      
