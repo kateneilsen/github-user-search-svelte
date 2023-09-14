@@ -50,6 +50,7 @@ body{
 main{
     display: flex;
     flex-direction: column;
+    width: 70%;
     gap: 1rem;
 	margin-inline: 24px;
 }
@@ -255,18 +256,11 @@ button.color-scheme {
 }
 
 /* MQ */
-@media (min-width: 576px) {
-     
+@media (min-width: 573px) {
+     /* main{
+        min-width: 573px;
+     } */
 }
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { ... }
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { ... }
 
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { ... }
-
-/* XX-Large devices (larger desktops, 1400px and up) */
-@media (min-width: 1400px) { ... }
