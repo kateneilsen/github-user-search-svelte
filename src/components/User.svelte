@@ -16,8 +16,10 @@
   <div class="card-header">
     <img class="circle" src={user.avatar_url} alt="user avatar" />
     <div class="header-info">
-      <b class=" {isDarkMode}">{user.name}</b>
-      <a href={user.html_url} class="username">@{user.login}</a>
+      <span>
+        <b class=" {isDarkMode}">{user.name}</b>
+        <a href={user.html_url} class="username">@{user.login}</a>
+      </span>
       <p class=" {isDarkMode}">Joined {joinedOnDate}</p>
     </div>
   </div>
