@@ -54,7 +54,8 @@ body{
 main{
     display: flex;
     flex-direction: column;
-    width: 70%;
+    min-width: 327px;
+    max-width: 730px;
     gap: 1rem;
 	margin-inline: 24px;
 }
@@ -118,6 +119,10 @@ button.search-button{
     width: fit-content;
 }
 
+button.search-button:hover{
+   background: #60ABFF;
+}
+
 button.color-scheme {
     display: flex;
     align-items: center;
@@ -149,6 +154,11 @@ button.color-scheme {
     height:4.375rem;
     border-radius: 4.375rem;
 	background: lightgray 50% / cover no-repeat;
+}
+
+.header-info span{
+    display: flex;
+    flex-direction: column;
 }
 
 .user-github-counts{
@@ -240,6 +250,7 @@ button.color-scheme {
 
     .card.dark{
         background: #1E2A47;
+        box-shadow: none;
     }
 
     .user-github-counts.dark{
@@ -265,12 +276,6 @@ button.color-scheme {
 
 /* MQ */
 @media (min-width: 573px) {
-    /* .socials{
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-        align-self: flex-start;
-    } */
     .socials{
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -279,8 +284,6 @@ button.color-scheme {
         width: 100%;
     }
 }
-
-/* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
     .header-info {
         display: grid;

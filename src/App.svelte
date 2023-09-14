@@ -11,14 +11,18 @@
   let user = {};
   let searchFilter = "";
   let date = new Date();
+  let searchError = false;
 
   const filterUsers = async () => {
-    await fetch(`${base_url}/${searchFilter}`)
-      .then((response) => response.json())
-      .then((data) => {
-        user = data;
-        date = user.created_at;
-      });
+    try {
+      const response = await fetch(`${base_url}/${searchFilter}`);
+    } catch (error) {
+      searchError = true;
+      console.log(error);
+      return;
+    }
+    user = data;
+    date = user.created_at;
   };
 
   const joinedOnDate = date.toLocaleDateString("en-US", {
@@ -27,15 +31,7 @@
     year: "numeric",
   });
 
-  const isAvailable = (value) => {
-    if (value === "" || value === null || value === undefined) {
-      return false;
-    }
-    return true;
-  };
-
   const getUser = async () => {
-    console.log(searchFilter);
     if (searchFilter === "") {
       await fetch(`${base_url}/octocat`)
         .then((response) => response.json())
@@ -53,7 +49,6 @@
     }
   };
 
-  // Set the color scheme each time it changes.
   $: {
     if ($colorScheme === "dark") {
       document.body.classList.add("dark");
@@ -66,6 +61,11 @@
 
 <main>
   <Header {isDarkMode} on:toggle={() => colorScheme.toggle()} />
-  <Search {isDarkMode} bind:searchFilter on:filter={() => filterUsers()} />
+  <Search
+    {isDarkMode}
+    bind:searchFilter
+    on:filter={() => filterUsers()}
+    {searchError}
+  />
   <User {user} {joinedOnDate} {isDarkMode} />
 </main>
