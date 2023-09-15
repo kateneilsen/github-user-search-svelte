@@ -20,7 +20,7 @@
   <button
     class="search-button"
     on:click={() => dispatch("filter", searchFilter)}
-    on:on:keydown={() => dispatch("filter", searchFilter)}>Search</button
+    on:keydown={() => dispatch("filter", searchFilter)}>Search</button
   >
 </div>
 
