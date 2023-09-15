@@ -22,7 +22,7 @@ b{
     color: #2B3442;
 }
 
-h6{
+h2{
     font-size: 0.8125rem;
 }
 
@@ -241,7 +241,7 @@ a.not-available:hover{
         background: #141D2F;
         color: #FFF;
     }
-    h1.dark, h6.dark, p.dark, a.dark, button.dark{
+    h1.dark, h2.dark, p.dark, a.dark, button.dark{
         color: #FFF;
     }
 

@@ -12,9 +12,9 @@
     class="color-scheme"
     on:click={() => dispatch("toggle", $colorScheme)}
   >
-    <h6 class=" {isDarkMode}">
+    <h2 class=" {isDarkMode}">
       {$colorScheme == "dark" ? "Light" : "Dark"}
-    </h6>
+    </h2>
 
     <img
       src={$colorScheme == "dark"
