@@ -128,6 +128,7 @@ button.color-scheme {
     gap: 1rem;
     letter-spacing: 0.15625rem;
     color: #2b3442;
+    font-size: 0.8125rem;
   }
 
  img.circle{
@@ -241,7 +242,11 @@ a.not-available:hover{
         background: #141D2F;
         color: #FFF;
     }
-    h1.dark, h2.dark, p.dark, a.dark, button.dark{
+    h1.dark, button.dark, p.dark, a.dark, button.dark{
+        color: #FFF;
+    }
+
+    button.color-scheme.dark{
         color: #FFF;
     }
 

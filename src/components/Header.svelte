@@ -9,13 +9,10 @@
 <div class="header">
   <h1 class=" {isDarkMode}">devfinder</h1>
   <button
-    class="color-scheme"
+    class="color-scheme {isDarkMode}"
     on:click={() => dispatch("toggle", $colorScheme)}
   >
-    <h2 class=" {isDarkMode}">
-      {$colorScheme == "dark" ? "Light" : "Dark"}
-    </h2>
-
+    {$colorScheme == "dark" ? "Light" : "Dark"}
     <img
       src={$colorScheme == "dark"
         ? "assets/icon-sun.svg"
@@ -24,12 +21,3 @@
     />
   </button>
 </div>
-
-<style>
-  button {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    letter-spacing: 2.5px;
-  }
-</style>
