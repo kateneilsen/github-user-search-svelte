@@ -1,6 +1,10 @@
 <script>
   export let user = {};
-  export let joinedOnDate;
+  $: joinedOn = new Date(user.created_at).toLocaleDateString("en-US", {
+    month: "short",
+    day: "numeric",
+    year: "numeric",
+  });
 
   const isAvailable = (value) => {
     if (value === "" || value === null || value === undefined) {
@@ -18,12 +22,14 @@
     <span class="header-text">
       <b class=" {isDarkMode}">{user.name}</b>
       <a href={user.html_url} class="username">@{user.login}</a>
-      <p class=" {isDarkMode}">Joined {joinedOnDate}</p>
+      <p class=" {isDarkMode}">
+        Joined {joinedOn}
+      </p>
     </span>
   </div>
 
   {#if isAvailable(user.bio)}
-    <p class="bio {isDarkMode}">{user.bio}</p>
+    <p class=" {isDarkMode}">{user.bio}</p>
   {:else}
     <p class="bio">Bio Not Available</p>
   {/if}

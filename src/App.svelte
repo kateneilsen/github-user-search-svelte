@@ -10,14 +10,7 @@
 
   let user = {};
   let searchFilter = "";
-  let date = new Date();
   let searchError = false;
-
-  const joinedOnDate = date.toLocaleDateString("en-US", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-  });
 
   $: {
     if ($colorScheme === "dark") {
@@ -56,5 +49,5 @@
     on:filter={() => getUser()}
     {searchError}
   />
-  <User {user} {joinedOnDate} {isDarkMode} />
+  <User {user} {isDarkMode} />
 </main>
