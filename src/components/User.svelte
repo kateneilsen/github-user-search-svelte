@@ -29,7 +29,7 @@
   </div>
 
   {#if isAvailable(user.bio)}
-    <p class=" {isDarkMode}">{user.bio}</p>
+    <p class="bio {isDarkMode}">{user.bio}</p>
   {:else}
     <p class="bio">Bio Not Available</p>
   {/if}
