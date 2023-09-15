@@ -13,21 +13,19 @@
 </script>
 
 <div class="card {isDarkMode}">
-  <div class="card-header">
+  <div class="header-info">
     <img class="circle" src={user.avatar_url} alt="user avatar" />
-    <div class="header-info">
-      <span>
-        <b class=" {isDarkMode}">{user.name}</b>
-        <a href={user.html_url} class="username">@{user.login}</a>
-      </span>
+    <span class="header-text">
+      <b class=" {isDarkMode}">{user.name}</b>
+      <a href={user.html_url} class="username">@{user.login}</a>
       <p class=" {isDarkMode}">Joined {joinedOnDate}</p>
-    </div>
+    </span>
   </div>
 
   {#if isAvailable(user.bio)}
-    <p class=" {isDarkMode}">{user.bio}</p>
+    <p class="bio {isDarkMode}">{user.bio}</p>
   {:else}
-    <p>Bio Not Available</p>
+    <p class="bio">Bio Not Available</p>
   {/if}
 
   <div class="user-github-counts {isDarkMode}">
