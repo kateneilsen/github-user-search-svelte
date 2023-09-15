@@ -19,7 +19,8 @@
   <b class="error {searchError ? 'show' : ''}">No Results</b>
   <button
     class="search-button"
-    on:click={() => dispatch("filter", searchFilter)}>Search</button
+    on:click={() => dispatch("filter", searchFilter)}
+    on:on:keydown={() => dispatch("filter", searchFilter)}>Search</button
   >
 </div>
 
