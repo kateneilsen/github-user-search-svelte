@@ -5,8 +5,6 @@
   import User from "./components/User.svelte";
   const base_url = "https://api.github.com/users";
 
-  let promise = Promise.resolve([]);
-
   import { colorScheme } from "./stores";
   $: isDarkMode = $colorScheme === "dark" ? "dark" : "";
 
@@ -31,23 +29,23 @@
 
   const getUser = async () => {
     if (searchFilter === "") {
-      await fetch(`${base_url}/octocat`)
-        .then((response) => response.json())
-        .then((data) => {
-          user = data;
-          date = user.created_at;
-        });
+      const data = await fetch(`${base_url}/octocat`);
+      const result = await data.json();
+      user = result;
     } else {
-      await fetch(`${base_url}/${searchFilter}`)
-        .then((response) => response.json())
-        .then((data) => {
-          user = data;
-          date = user.created_at;
-        });
+      const data = await fetch(`${base_url}/${searchFilter}`);
+      if (data.status === 404) {
+        searchError = true;
+        searchFilter = "";
+      } else {
+        searchError = false;
+        const result = await data.json();
+        user = result;
+      }
     }
   };
 
-  onMount(getUser);
+  onMount(async () => await getUser());
 </script>
 
 <main>
