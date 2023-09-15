@@ -50,11 +50,10 @@ Users should be able to:
 ### What I learned
 
 This is my first project using the svelte framework.
-Here are a few things I learned about the svelte framework:
-
-- Data is shared using props
+**Key Takeaways:**
 - svelte has two-way data binding!
 - create custom events using the `createEventDispatcher` utility. This allows you to bubble up an event to the parent component.
+- component scoped styles (did not utilize this but plan to in the future)
 
 **Search.svelte**
 
