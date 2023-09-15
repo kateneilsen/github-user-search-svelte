@@ -30,9 +30,9 @@ Users should be able to:
 
 ### Screenshots
 
-![Mobile: Light](./screenshots/mobile_light.png) <br/>
-![Tablet: Dark](./screenshots/tablet_dark.png) <br/>
-![Desktop: Light](./screenshots/desktop_light.png)<br/>
+![](./screenshots/mobile-light.png?raw=true)
+![](./screenshots/tablet-dark.png)
+![](./screenshots/desktop-light.png)
 
 ### Links
 
