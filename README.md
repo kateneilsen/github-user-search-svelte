@@ -6,7 +6,7 @@ This is my solution to the [GitHub user search app challenge on Frontend Mentor]
 
 - [Overview](#overview)
   - [The challenge](#the-challenge)
-  - [Screenshots](#screenshots)
+  - [Screenshot](#screenshot)
   - [Links](#links)
 - [My process](#my-process)
   - [Built with](#built-with)
@@ -28,11 +28,11 @@ Users should be able to:
 - Switch between light and dark themes
 - **Bonus**: Have the correct color scheme chosen for them based on their computer preferences. _Hint_: Research `prefers-color-scheme` in CSS.
 
-### Screenshots
+### Screenshot
 
-![](./screenshots/mobile-light.png?raw=true)
-![](./screenshots/tablet-dark.png)
-![](./screenshots/desktop-light.png)
+![](./screenshots/mobile-light.png "Mobile")
+![](./screenshots/tablet-dark.png "Tablet")
+![](./screenshots/desktop-light.png "Desktop")
 
 ### Links
 
