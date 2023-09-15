@@ -1,6 +1,6 @@
-# Frontend Mentor - GitHub user search app solution
+# GitHub user search app
 
-This is a solution to the [GitHub user search app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
+This is my solution to the [GitHub user search app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/github-user-search-app-Q09YOgaH6).
 
 ## Table of contents
 
@@ -49,32 +49,59 @@ Users should be able to:
 
 ### What I learned
 
-This is my first project using the svelte framework. I broke the app into 3 components: header, search, and user.
-The data request is handled in the parent component(App.svelte)
+This is my first project using the svelte framework.
+Here are a few things I learned about the svelte framework:
 
 - Data is shared using props
-- svelte has two-way data binding! <br />
+- svelte has two-way data binding!
+- create custom events using the `createEventDispatcher` utility. This allows you to bubble up an event to the parent component.
 
 **Search.svelte**
 
 ```javascript
-bind: value = { searchFilter };
+import { createEventDispatcher } from "svelte";
+const dispatch = createEventDispatcher();
+<button
+  class="search-button"
+  on:click={() => dispatch("filter", searchFilter)}
+  on:keydown={() => dispatch("filter", searchFilter)}
+>
+  Search
+</button>;
 ```
 
-**App.svelte**
+**App.svelte**:
 
 ```javascript
-bind: searchFilter;
+  const getUser = async () => {
+    if (searchFilter === "") {
+      const data = await fetch(`${base_url}/octocat`);
+      const result = await data.json();
+      user = result;
+    } else {
+      const data = await fetch(`${base_url}/${searchFilter}`);
+      if (data.status === 404) {
+        searchError = true;
+        searchFilter = "";
+      } else {
+        searchError = false;
+        const result = await data.json();
+        user = result;
+      }
+    }
+  };
+  <Search
+    {isDarkMode}
+    bind:searchFilter
+    on:filter={() => getUser()}
+    {searchError}
+  />
 ```
-
-- dynamic behavior
-- state management
 
 ### Continued development
 
+- local storage
 - Svelte stores
-- reactivity in svelte
-- lifecycles in svelte
 - accessibility in svelte
 
 ### Useful resources
@@ -86,5 +113,3 @@ bind: searchFilter;
 
 - GitHub - [@kateneilsen](https://www.github.com/kateneilsen)
 - Frontend Mentor - [@kateneilsen](https://www.frontendmentor.io/profile/kateneilsen)
-
-**Note: Delete this note and add/remove/edit lines above based on what links you'd like to share.**
